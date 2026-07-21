@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Users — signalz</title>
+</head>
+<body>
+
+  <section id="form-screen">
+    <h1>New user</h1>
+    <form id="user-form" novalidate>
+      <label>Username   <input name="username"  type="text" required /></label>
+      <label>Email      <input name="email"     type="email" required /></label>
+      <label>Birth date <input name="birthDate" type="date"  required /></label>
+      <label>Image      <input name="image"     type="file"  accept="image/*" required /></label>
+      <p id="form-error" role="alert"></p>
+      <button type="submit">Save</button>
+    </form>
+  </section>
+
+  <section id="list-screen" hidden>
+    <h1>Users</h1>
+    <button id="add-user">Add user</button>
+    <table>
+      <thead>
+        <tr><th>Username</th><th>Email</th><th>Birth date</th></tr>
+      </thead>
+      <tbody id="users-body"></tbody>
+    </table>
+  </section>
+
+
+  <script src="lib/jquery.min.js"></script>
+  <script type="module" src="screens/users.js"></script>
+</body>
+</html>
