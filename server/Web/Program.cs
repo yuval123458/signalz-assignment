@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // DI registration - task 1
 var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddControllers();
+builder.Services.AddProblemDetails();
 builder.Services.AddDbContext<AppDbContext>(o => o.UseSqlServer(connectionString));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IImageStorage>(new DiskImageStorage(
@@ -29,6 +30,8 @@ builder.Services.AddScoped<InvoiceService>();
 
 
 var app = builder.Build();
+
+app.UseExceptionHandler();
 
 app.MapControllers();
 

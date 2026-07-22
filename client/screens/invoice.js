@@ -4,8 +4,8 @@ const $form  = $("#invoice-form");
 const $error = $("#invoice-error");
 
 function show(screen) {
-  $("#upload-screen, #result-screen").hide();
-  $(screen).show();
+  $("#upload-screen, #result-screen").prop("hidden", true);
+  $(screen).prop("hidden", false);
 }
 
 $form.on("submit", async function (event) {

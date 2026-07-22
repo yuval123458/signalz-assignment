@@ -21,5 +21,9 @@ public class UsersController(UserService users) : ControllerBase
     public Task<List<User>> GetAll() => users.GetAllAsync();
 
     [HttpGet("{id:int}")]
-    public Task<User?> GetById(int id) => users.GetByIdAsync(id);
+    public async Task<ActionResult> GetById(int id)
+    {
+        var user = await users.GetByIdAsync(id);
+        return user is null ? NotFound() : Ok(user);
+    }
 }

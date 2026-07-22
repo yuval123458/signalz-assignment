@@ -1,10 +1,9 @@
 import { getUsers } from "../lib/api.js";
 
-export function initUserList({ onAddNew, onSelect }) {
+export function UserList(handleUser) {
 
-  // one delegated handler for all rows
   $("#users-body").on("click", "tr", function () {
-    onSelect($(this).data("id"));
+    handleUser($(this).data("id"));
   });
 }
 

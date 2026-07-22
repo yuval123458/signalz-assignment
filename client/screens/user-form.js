@@ -1,7 +1,7 @@
 import { compressImage } from "../lib/image.js";
 import { createUser } from "../lib/api.js";
 
-export function initUserForm({ onSaved }) {
+export function UserForm(showList) {
   
   const $form  = $("#user-form");
   const $error = $("#form-error");
@@ -29,7 +29,7 @@ export function initUserForm({ onSaved }) {
     data.append("image", compressed, "image.jpg");
 
     await createUser(data);  
-    onSaved();      
+    showList();      
 
   });
 
