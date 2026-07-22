@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="css/app.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Users — signalz</title>
@@ -21,13 +22,23 @@
 
   <section id="list-screen" hidden>
     <h1>Users</h1>
-    <button id="add-user">Add user</button>
     <table>
       <thead>
         <tr><th>Username</th><th>Email</th><th>Birth date</th></tr>
       </thead>
       <tbody id="users-body"></tbody>
     </table>
+  </section>
+
+  <section id="detail-screen" hidden>
+    <h1>User details</h1>
+    <button id="back-to-list">Back</button>
+    <dl>
+      <dt>Username</dt>   <dd id="d-username"></dd>
+      <dt>Email</dt>      <dd id="d-email"></dd>
+      <dt>Birth date</dt> <dd id="d-birthDate"></dd>
+    </dl>
+    <img id="d-image" alt="user image" width="200" />
   </section>
 
 

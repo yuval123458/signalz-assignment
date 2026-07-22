@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;   
+  align-items: center;    
+  padding: 2rem 1rem;
+  color: #222;
+}
+
+section {
+  width: 100%;
+  max-width: 600px;   
+}
+
+button:hover { background: #1d4ed8; }  
+
+
+#users-body tr {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+#users-body tr:hover { background: #f0f4ff; }
