@@ -1,6 +1,6 @@
 using Application.Users;
 
-namespace Infrastructure;
+namespace Infrastructure.Users;
 
 public class DiskImageStorage : IImageStorage
 {

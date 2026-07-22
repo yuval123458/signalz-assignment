@@ -13,3 +13,10 @@ export async function getUser(id) {
   const res = await fetch(`/api/users/${id}`);
   return res.json();
 }
+
+export async function extractInvoice(formData) {
+  const res = await fetch("/api/invoices", { method: "POST", body: formData });
+  if (!res.ok) throw new Error("Failed to process invoice");
+  return res.json();
+}
+

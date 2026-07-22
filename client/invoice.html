@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice — signalz</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+
+  <!-- STATE 1: upload -->
+  <section id="upload-screen">
+    <h1>Invoice extraction</h1>
+    <form id="invoice-form">
+      <label>Send results to
+        <input name="email" type="email" required />
+      </label>
+      <label>Invoice PDF
+        <input name="pdf" type="file" accept="application/pdf" required />
+      </label>
+      <p id="invoice-error" role="alert"></p>
+      <button type="submit">Extract &amp; email</button>
+    </form>
+    <p><a href="/">← Back to users</a></p>
+  </section>
+
+  <!-- STATE 2: result -->
+  <section id="result-screen" hidden>
+    <h1>Extracted invoice</h1>
+    <div id="invoice-result"></div>
+    <button id="back">Upload another</button>
+  </section>
+
+  <script src="lib/jquery.min.js"></script>
+  <script type="module" src="screens/invoice.js"></script>
+</body>
+</html>
