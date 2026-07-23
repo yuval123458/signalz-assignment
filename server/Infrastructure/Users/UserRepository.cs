@@ -12,10 +12,12 @@ public class UserRepository : IUserRepository
 
     public async Task<int> AddAsync(User user)
     {
-        _db.Users.Add(user);
-        await _db.SaveChangesAsync();
-        return user.Id;
+        var ids = await _db.Database
+            .SqlQuery<int>($"EXEC CreateUser {user.Username}, {user.Email}, {user.BirthDate}, {user.ImagePath}")
+            .ToListAsync();
+        return ids[0];
     }
+
 
     public Task<List<User>> GetAllAsync() =>
         _db.Users.ToListAsync();

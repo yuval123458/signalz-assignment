@@ -26,6 +26,16 @@ public class UserService
         return await _users.AddAsync(user);
     }
 
-    public Task<List<User>> GetAllAsync() => _users.GetAllAsync();
-    public Task<User?> GetByIdAsync(int id) => _users.GetByIdAsync(id);
+    public async Task<List<UserResponseDto>> GetAllAsync() =>
+    (await _users.GetAllAsync()).Select(u => ToDto(u)).ToList();
+
+    public async Task<UserResponseDto?> GetByIdAsync(int id)
+    {
+        var user = await _users.GetByIdAsync(id);
+        return user is null ? null : ToDto(user);
+    }
+
+    private UserResponseDto ToDto(User u) =>
+        new(u.Id, u.Username, u.Email, u.BirthDate, u.ImagePath);
+
 }

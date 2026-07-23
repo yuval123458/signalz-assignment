@@ -1,5 +1,4 @@
 using Application.Users;
-using Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web;
@@ -18,7 +17,7 @@ public class UsersController(UserService users) : ControllerBase
     }
 
     [HttpGet]
-    public Task<List<User>> GetAll() => users.GetAllAsync();
+    public Task<List<UserResponseDto>> GetAll() => users.GetAllAsync();
 
     [HttpGet("{id:int}")]
     public async Task<ActionResult> GetById(int id)
@@ -26,4 +25,7 @@ public class UsersController(UserService users) : ControllerBase
         var user = await users.GetByIdAsync(id);
         return user is null ? NotFound() : Ok(user);
     }
+
+
+
 }
